@@ -19,7 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
-		window.location.href = "https://beta.organisedminds.com";
+        this.bindEvents();
     },
     // Bind Event Listeners
     //
@@ -33,17 +33,9 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+	    var ref = window.open('https://beta.organisedminds.com', '_blank', 'location=yes');
+		ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
+	    ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
+	    ref.addEventListener('exit', function() { alert(event.type); });
     }
 };
