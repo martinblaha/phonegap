@@ -19,7 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        this.bindEvents();
+		window.location.href = "https://beta.organisedminds.com";
     },
     // Bind Event Listeners
     //
